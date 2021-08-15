@@ -21,25 +21,39 @@ function playRound(playerSelection, computerSelection) {
         return "Tie!"
     } else if (playerSelection === "rock"){
         if (computerSelection =="paper") {
-            return "You Lose! Paper beats Rock";
+            return lose(playerSelection, computerSelection)
         } else {
-            return "You Win! Rock beats Scissors";
+            return win(playerSelection, computerSelection);
         }
     } else if (playerSelection === "paper"){
         if (computerSelection === "scissors"){
-            return "You Lose! Scissors beats Paper!";
+            return lose(playerSelection, computerSelection)
         } else {
-            return "You Win! Paper beats Rock!"
+            return win(playerSelection, computerSelection);
         }
     } else if (playerSelection ==="scissors"){
         if (computerSelection === "rock") {
-            return "You Lose! Rock beats Scissors!";
+            return lose(playerSelection, computerSelection)
         } else {
-            return "You Win! Scissors beats Paper!";
+            return win(playerSelection, computerSelection);
         }
     } else {
         return "Invalid Input";
     }
+}
+
+function lose(playerSelection, computerSelection) {
+    computerScore++;
+    return `You lose, ${computerSelection} beats ${playerSelection}.
+    Player score: ${playerScore}
+    Computer score: ${computerScore} `;
+}
+
+function win(playerSelection, computerSelection) {
+    playerScore++;
+    return `You win, ${playerSelection} beats ${computerSelection}
+    Player score: ${playerScore}
+    Computer score: ${computerScore} `;
 }
 
 let playerScore = 0;
