@@ -14,7 +14,6 @@ function computerPlay() {
     }
 }
 
-
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
 
@@ -43,7 +42,14 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-
-let playerSelection = prompt("Rock, Paper, Scissors? (input below)");
-computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+let playerScore = 0;
+let computerScore= 0;
+function game() {
+    i=5;
+    while (i>0){
+        playerSelection = prompt("Rock, Paper, Scissors? (input below)");
+        computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerSelection));
+        i--;
+    }
+}
