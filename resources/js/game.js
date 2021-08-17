@@ -15,10 +15,8 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-
     if (playerSelection === computerSelection){
-        return "Tie!"
+        resultDiv.textContent += "Tie \n"
     } else if (playerSelection === "rock"){
         if (computerSelection =="paper") {
             return lose(playerSelection, computerSelection)
@@ -44,26 +42,41 @@ function playRound(playerSelection, computerSelection) {
 
 function lose(playerSelection, computerSelection) {
     computerScore++;
-    return `You lose, ${computerSelection} beats ${playerSelection}.
-    Player score: ${playerScore}
-    Computer score: ${computerScore} `;
+    computerScoreDiv.textContent = computerScore;
+    playerScoreDiv.textContent = playerScore;
+    resultDiv.textContent += "Lose \n"
 }
 
 function win(playerSelection, computerSelection) {
     playerScore++;
-    return `You win, ${playerSelection} beats ${computerSelection}
-    Player score: ${playerScore}
-    Computer score: ${computerScore} `;
+    computerScoreDiv.textContent = computerScore;
+    playerScoreDiv.textContent = playerScore;
+    resultDiv.textContent += "Win \t"
 }
 
 let playerScore = 0;
 let computerScore= 0;
-function game() {
-    i=5;
-    while (i>0){
-        playerSelection = prompt("Rock, Paper, Scissors? (input below)");
-        computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
-        i--;
-    }
+
+function playerClick(id) {
+    playRound("paper", "rock");
+    console.log("pressed")
 }
+
+const buttons = document.querySelectorAll("button");
+const playerScoreDiv = document.querySelector("#player-score");
+const computerScoreDiv = document.querySelector("#computer-score");
+const resultDiv = document.querySelector("#result")
+buttons.forEach(button => {
+    button.addEventListener("click", (e) => {
+        game(e.target.id)
+    })
+});
+
+
+function game(playerSelection) {
+    let playerScore = 0;
+    let computerScore = 0;
+    computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
+}
+
