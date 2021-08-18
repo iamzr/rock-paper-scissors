@@ -4,11 +4,27 @@
   <title>Page Title</title>
   <meta charset="UTF-8"/>
   <script src="resources/js/game.js" defer></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
 </head>
 <body>
-  <button id="rock" class="rps">Rock</button>
-  <button id="paper" class="rps">Paper</button>
-  <button id="scissors" class="rps">Scissors</button>
+  <h1 class="center">Rock, Paper, Scissors</h1>
+  <div class="center">
+    <p id="rules">Scissors cuts paper | Paper covers rock | Rock crushes scissors </p>
+  </div>
+  <div id="button-container" class="grid-center center">
+    <button id="rock" class="rps btn-1">
+      <img id="rock" src="resources/images/rock.jpg" alt="rock" style="width:50%;">
+    </button>
+    <button id="paper" class="rps btn-1">
+      <img id="paper" src="resources/images/paper.png" alt="paper">
+    </button>
+    <button id="scissors" class="rps btn-1">
+      <img id="scissors" src="resources/images/scissors.png" alt="scissors">
+    </button>
+  </div>
   <div>Scores:
     <div id="player-score">0</div>
     <div id="computer-score">0</div>

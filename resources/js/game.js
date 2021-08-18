@@ -68,11 +68,6 @@ function checkScore () {
 let playerScore = 0;
 let computerScore= 0;
 
-function playerClick(id) {
-    playRound("paper", "rock");
-    console.log("pressed")
-}
-
 const buttons = document.querySelectorAll(".rps");
 const playerScoreDiv = document.querySelector("#player-score");
 const computerScoreDiv = document.querySelector("#computer-score");
@@ -101,6 +96,7 @@ function game(playerSelection) {
     let playerScore = 0;
     let computerScore = 0;
     computerSelection = computerPlay();
+    console.log(playerSelection, computerSelection)
     console.log(playRound(playerSelection, computerSelection));
 }
 
